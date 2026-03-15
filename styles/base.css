@@ -1,0 +1,232 @@
+/* =============================================================================
+   BASE.CSS
+   Global Typography and Element Defaults for Caparros UI
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   BODY
+----------------------------------------------------------------------------- */
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-primary);
+  overflow-x: hidden;
+}
+
+/* Cursor: hide default cursor only on desktop where custom cursor is active */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   HEADINGS
+   All headings use the serif font for editorial elegance.
+----------------------------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-light);
+}
+
+h2 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-light);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-regular);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-regular);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+/* Italic headings — editorial style */
+h1 em,
+h2 em,
+h3 em {
+  font-style: italic;
+  font-weight: var(--font-weight-light);
+  color: var(--color-accent-gold);
+}
+
+/* -----------------------------------------------------------------------------
+   PARAGRAPHS
+----------------------------------------------------------------------------- */
+
+p {
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+  max-width: 70ch;     /* Optimal reading line length */
+}
+
+/* Large lead paragraph — used for section intros */
+.text-lead {
+  font-family: var(--font-serif);
+  font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-3xl));
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-primary);
+  max-width: 55ch;
+}
+
+/* -----------------------------------------------------------------------------
+   LINKS
+----------------------------------------------------------------------------- */
+
+a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-gold);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Inline text link — used inside content areas */
+.inline-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--color-accent-gold);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.inline-text-link:hover {
+  color: var(--color-accent-gold-dark);
+  border-bottom-color: var(--color-accent-gold-dark);
+}
+
+/* -----------------------------------------------------------------------------
+   EYEBROW LABEL
+   Small uppercase tracking label used above section headings.
+----------------------------------------------------------------------------- */
+
+.eyebrow-label {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.eyebrow-label--on-dark {
+  color: var(--color-accent-gold);
+}
+
+/* -----------------------------------------------------------------------------
+   BLOCKQUOTE
+----------------------------------------------------------------------------- */
+
+blockquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-primary);
+}
+
+/* -----------------------------------------------------------------------------
+   ADDRESS
+----------------------------------------------------------------------------- */
+
+address {
+  font-style: normal;
+  line-height: var(--line-height-relaxed);
+}
+
+/* -----------------------------------------------------------------------------
+   SELECTION STYLING
+----------------------------------------------------------------------------- */
+
+::selection {
+  background-color: var(--color-accent-gold);
+  color: var(--color-bg-primary);
+}
+
+/* -----------------------------------------------------------------------------
+   FOCUS VISIBLE GLOBAL
+----------------------------------------------------------------------------- */
+
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* -----------------------------------------------------------------------------
+   SCROLLBAR STYLING (Webkit — optional premium touch)
+----------------------------------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-medium);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-gold);
+}

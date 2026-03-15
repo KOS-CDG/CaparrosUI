@@ -1,0 +1,343 @@
+/* =============================================================================
+   RESPONSIVE.CSS
+   Media Queries for Caparros UI
+   Breakpoints:
+     --bp-xl:   1280px  (large desktop)
+     --bp-lg:   1024px  (desktop / small laptop)
+     --bp-md:    768px  (tablet)
+     --bp-sm:    640px  (large mobile)
+     --bp-xs:    480px  (small mobile)
+   ============================================================================= */
+
+
+/* =============================================================================
+   LARGE DESKTOP — max-width: 1280px
+   Minor tweaks for smaller desktop screens.
+   ============================================================================= */
+
+@media (max-width: 1280px) {
+
+  .portfolio-grid {
+    gap: var(--space-5);
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .service-item__panel-inner {
+    grid-template-columns: 1fr 280px;
+    gap: var(--space-8);
+  }
+
+}
+
+
+/* =============================================================================
+   TABLET LANDSCAPE / SMALL DESKTOP — max-width: 1024px
+   ============================================================================= */
+
+@media (max-width: 1024px) {
+
+  /* Header */
+  .site-nav,
+  .nav-actions {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Hero */
+  .hero-section__headline {
+    max-width: 100%;
+  }
+
+  /* Portfolio Grid */
+  .portfolio-card--large {
+    grid-column: span 12;
+  }
+
+  .portfolio-card--medium {
+    grid-column: span 6;
+  }
+
+  .portfolio-card--small {
+    grid-column: span 6;
+  }
+
+  /* Agency Statement */
+  .agency-statement-section__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  .agency-statement-section__headline {
+    max-width: 100%;
+  }
+
+  /* Insights Grid */
+  .insight-card--large {
+    grid-column: span 12;
+    grid-row: span 1;
+  }
+
+  .insight-card--standard {
+    grid-column: span 6;
+  }
+
+  /* Footer */
+  .site-footer__main {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-10);
+  }
+
+  /* Services accordion tags — hide on smaller screens */
+  .service-item__tags {
+    display: none;
+  }
+
+  /* Process */
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* About page */
+  .page-hero-section__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Contact */
+  .contact-section__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  .contact-info-column {
+    padding-top: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+  }
+
+  .contact-info-block {
+    min-width: 200px;
+  }
+
+  /* Service panel */
+  .service-item__panel-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .service-item__preview {
+    display: none;
+  }
+
+}
+
+
+/* =============================================================================
+   TABLET PORTRAIT — max-width: 768px
+   ============================================================================= */
+
+@media (max-width: 768px) {
+
+  /* Header height */
+  .site-header {
+    height: var(--header-height-mobile);
+  }
+
+  .hero-section {
+    padding-top: var(--header-height-mobile);
+  }
+
+  /* Hero stats strip — 2 columns on tablet */
+  .hero-stats {
+    gap: var(--space-8);
+  }
+
+  .hero-stats__divider {
+    display: none;
+  }
+
+  /* Featured Work header — stack vertically */
+  .featured-work-section__header,
+  .insights-section__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Portfolio — all cards full width */
+  .portfolio-card--medium,
+  .portfolio-card--small {
+    grid-column: span 12;
+  }
+
+  /* Insights — all full width */
+  .insight-card--standard {
+    grid-column: span 12;
+  }
+
+  /* Process */
+  .process-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Footer — single column */
+  .site-footer__main {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  /* Footer bottom bar — stack */
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  /* About columns */
+  .about-intro-section__columns {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  /* Form rows — stack on tablet */
+  .form-row--two-cols {
+    grid-template-columns: 1fr;
+  }
+
+  /* Testimonial */
+  .testimonial-quote-block__text {
+    font-size: var(--font-size-xl);
+  }
+
+  /* Service item header — simplify layout */
+  .service-item__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .service-item__header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+}
+
+
+/* =============================================================================
+   MOBILE — max-width: 640px
+   ============================================================================= */
+
+@media (max-width: 640px) {
+
+  /* Hero scroll indicator — hide on mobile */
+  .hero-section__scroll-indicator {
+    display: none;
+  }
+
+  /* Hero stats — wrap and reduce size */
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: var(--space-6);
+  }
+
+  .hero-stat-item__number {
+    font-size: var(--font-size-2xl);
+  }
+
+  /* Process grid — single column on mobile */
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Values & Team grids — single column */
+  .values-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* CTA actions — stack */
+  .cta-section__actions,
+  .hero-section__actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .cta-section__actions .btn,
+  .hero-section__actions .btn {
+    justify-content: center;
+  }
+
+  /* Client strip — wrap */
+  .client-strip__logos {
+    gap: var(--space-6);
+  }
+
+  /* Mobile menu — reduce font size slightly */
+  .mobile-menu__link {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  /* Custom cursor — hidden on touch devices */
+  .custom-cursor {
+    display: none;
+  }
+
+}
+
+
+/* =============================================================================
+   SMALL MOBILE — max-width: 480px
+   ============================================================================= */
+
+@media (max-width: 480px) {
+
+  .hero-section__headline {
+    letter-spacing: -0.03em;
+  }
+
+  .page-hero-section__headline {
+    font-size: var(--font-size-3xl);
+  }
+
+  .section-header__heading {
+    font-size: var(--font-size-3xl);
+  }
+
+  .cta-section__headline {
+    font-size: var(--font-size-3xl);
+  }
+
+  .testimonial-quote-block__mark {
+    font-size: 4rem;
+  }
+
+  .testimonial-quote-block__text {
+    font-size: var(--font-size-lg);
+  }
+
+}

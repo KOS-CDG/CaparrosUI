@@ -1,0 +1,319 @@
+/* =============================================================================
+   LAYOUT.CSS
+   Structural Layout for Caparros UI
+   Containers, grids, section wrappers, header, and footer frames.
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   SITE BODY
+----------------------------------------------------------------------------- */
+
+.site-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-main {
+  flex: 1;
+}
+
+/* -----------------------------------------------------------------------------
+   CONTAINER
+   The main wrapper for all content. Centers content and applies
+   consistent horizontal padding at all breakpoints.
+----------------------------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+/* Wide container variant — for very large panoramic layouts */
+.container--wide {
+  max-width: 1600px;
+  padding-inline: var(--container-padding-x-wide);
+}
+
+/* Narrow container variant — for text-heavy content */
+.container--narrow {
+  max-width: 900px;
+}
+
+/* -----------------------------------------------------------------------------
+   SITE HEADER LAYOUT
+----------------------------------------------------------------------------- */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  z-index: var(--z-index-header);
+  transition:
+    background-color var(--transition-slow),
+    border-bottom-color var(--transition-slow),
+    box-shadow var(--transition-slow);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: var(--space-8);
+}
+
+/* Site Nav: takes available center space */
+.site-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-10);
+  list-style: none;
+}
+
+/* Nav Actions: right-aligned CTA */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* -----------------------------------------------------------------------------
+   HERO SECTION LAYOUT
+----------------------------------------------------------------------------- */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--header-height);
+  overflow: hidden;
+}
+
+.hero-section__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: var(--section-padding-lg);
+  padding-bottom: var(--space-24);
+}
+
+.hero-section__stats-strip {
+  padding-block: var(--space-8);
+  border-top: 1px solid var(--color-border-light);
+}
+
+/* -----------------------------------------------------------------------------
+   SECTION HEADERS
+----------------------------------------------------------------------------- */
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.section-header__heading {
+  margin-top: var(--space-3);
+}
+
+/* Section header with inline CTA — uses flex row on desktop */
+.featured-work-section__header,
+.insights-section__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-block: var(--section-padding-md);
+  gap: var(--space-8);
+}
+
+.section-header__cta {
+  flex-shrink: 0;
+  padding-bottom: var(--space-2);
+}
+
+/* -----------------------------------------------------------------------------
+   PORTFOLIO GRID LAYOUT
+----------------------------------------------------------------------------- */
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-6);
+  padding-bottom: var(--section-padding-md);
+}
+
+/* Large cards: full 12 columns (full width) */
+.portfolio-card--large {
+  grid-column: span 12;
+}
+
+/* Medium cards: 6 columns (half width) */
+.portfolio-card--medium {
+  grid-column: span 6;
+}
+
+/* Small cards: 4 columns (one third) */
+.portfolio-card--small {
+  grid-column: span 4;
+}
+
+/* -----------------------------------------------------------------------------
+   AGENCY STATEMENT SECTION LAYOUT
+----------------------------------------------------------------------------- */
+
+.agency-statement-section__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: start;
+  padding-block: var(--section-padding-xl);
+}
+
+/* -----------------------------------------------------------------------------
+   SERVICES SECTION LAYOUT
+----------------------------------------------------------------------------- */
+
+.services-section__header {
+  padding-block: var(--section-padding-md);
+}
+
+.services-accordion {
+  border-top: 1px solid var(--color-border-light);
+  padding-bottom: var(--section-padding-md);
+}
+
+/* -----------------------------------------------------------------------------
+   PROCESS GRID LAYOUT
+----------------------------------------------------------------------------- */
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-8);
+  padding-bottom: var(--section-padding-md);
+}
+
+/* -----------------------------------------------------------------------------
+   INSIGHTS GRID LAYOUT
+----------------------------------------------------------------------------- */
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-6);
+  padding-bottom: var(--section-padding-md);
+}
+
+.insight-card--large {
+  grid-column: span 6;
+  grid-row: span 2;
+}
+
+.insight-card--standard {
+  grid-column: span 6;
+}
+
+/* -----------------------------------------------------------------------------
+   ABOUT PAGE LAYOUTS
+----------------------------------------------------------------------------- */
+
+.page-hero-section__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+  padding-block: var(--section-padding-xl);
+  padding-top: calc(var(--header-height) + var(--section-padding-xl));
+}
+
+.page-hero-section--compact .page-hero-section__inner {
+  grid-template-columns: 1fr;
+  max-width: 800px;
+  padding-top: calc(var(--header-height) + var(--section-padding-md));
+}
+
+.about-intro-section__inner {
+  padding-block: var(--section-padding-lg);
+}
+
+.about-intro-section__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+  margin-top: var(--space-10);
+}
+
+.values-section__inner {
+  padding-block: var(--section-padding-lg);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+}
+
+.team-section__inner {
+  padding-block: var(--section-padding-lg);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+}
+
+/* -----------------------------------------------------------------------------
+   CONTACT PAGE LAYOUT
+----------------------------------------------------------------------------- */
+
+.contact-section__inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-16);
+  align-items: start;
+  padding-block: var(--section-padding-lg);
+}
+
+/* -----------------------------------------------------------------------------
+   FOOTER LAYOUT
+----------------------------------------------------------------------------- */
+
+.site-footer__main {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: var(--space-12);
+  padding-block: var(--section-padding-md);
+}
+
+.site-footer__bottom {
+  border-top: 1px solid var(--color-border-dark);
+  padding-block: var(--space-6);
+}
+
+.footer-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.footer-bottom-bar__legal-links {
+  display: flex;
+  gap: var(--space-6);
+}
