@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About Caparros UI — our story, team, values, and the philosophy behind our premium digital design work." />
+  <title>About — Caparros UI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles/variables.css" />
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/utilities.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/animations.css" />
+  <link rel="stylesheet" href="styles/responsive.css" />
+</head>
+
+<body class="site-body" data-page="about">
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="customCursor" aria-hidden="true">
+    <div class="custom-cursor__dot"></div>
+    <div class="custom-cursor__ring"></div>
+  </div>
+
+  <!-- ============================================================
+       SITE HEADER (same as index.html — identical structure)
+  ============================================================ -->
+  <header class="site-header" id="siteHeader" role="banner">
+    <div class="site-header__inner container">
+      <a href="index.html" class="nav-logo" aria-label="Caparros UI — Return to homepage">
+        <span class="nav-logo__wordmark">Caparros<span class="nav-logo__accent">UI</span></span>
+      </a>
+      <nav class="site-nav" id="siteNav" role="navigation" aria-label="Primary navigation">
+        <ul class="nav-menu" role="list">
+          <li class="nav-menu__item">
+            <a href="index.html#featured-work" class="nav-menu__link">Work</a>
+          </li>
+          <li class="nav-menu__item">
+            <a href="index.html#services" class="nav-menu__link">Services</a>
+          </li>
+          <li class="nav-menu__item">
+            <a href="index.html#insights" class="nav-menu__link">Insights</a>
+          </li>
+          <li class="nav-menu__item">
+            <a href="about.html" class="nav-menu__link nav-menu__link--active" aria-current="page">About</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn--primary btn--small">
+          <span class="btn__label">Start a Project</span>
+          <span class="btn__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+        <span class="nav-toggle__line nav-toggle__line--top"></span>
+        <span class="nav-toggle__line nav-toggle__line--mid"></span>
+        <span class="nav-toggle__line nav-toggle__line--bot"></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation menu" aria-hidden="true">
+      <div class="mobile-menu__inner">
+        <nav class="mobile-menu__nav" aria-label="Mobile primary navigation">
+          <ul class="mobile-menu__list" role="list">
+            <li class="mobile-menu__item"><a href="index.html#featured-work" class="mobile-menu__link" data-index="01">Work</a></li>
+            <li class="mobile-menu__item"><a href="index.html#services" class="mobile-menu__link" data-index="02">Services</a></li>
+            <li class="mobile-menu__item"><a href="index.html#insights" class="mobile-menu__link" data-index="03">Insights</a></li>
+            <li class="mobile-menu__item"><a href="about.html" class="mobile-menu__link" data-index="04">About</a></li>
+            <li class="mobile-menu__item"><a href="contact.html" class="mobile-menu__link" data-index="05">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="mobile-menu__footer">
+          <p class="mobile-menu__tagline">Crafting digital excellence since 2012.</p>
+          <div class="mobile-menu__social-links">
+            <a href="#" class="mobile-menu__social-link">LinkedIn</a>
+            <a href="#" class="mobile-menu__social-link">Instagram</a>
+            <a href="#" class="mobile-menu__social-link">Dribbble</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main class="site-main" id="siteMain" role="main">
+
+    <!-- Page Hero (Inner Page style — smaller than homepage hero) -->
+    <section class="page-hero-section" aria-labelledby="aboutHeroHeading">
+      <div class="page-hero-section__inner container">
+        <div class="page-hero-section__content">
+          <span class="eyebrow-label hero-entrance-element" data-entrance-order="1">About the Studio</span>
+          <h1 class="page-hero-section__headline hero-entrance-element" id="aboutHeroHeading" data-entrance-order="2">
+            A studio that cares<br />as much about <em>craft</em><br />as it does outcomes.
+          </h1>
+        </div>
+        <div class="page-hero-section__image-panel hero-entrance-element" data-entrance-order="3">
+          <img
+            src="https://picsum.photos/seed/about-studio/900/640"
+            alt="The Caparros UI studio team at work in a collaborative workspace"
+            class="page-hero-section__image"
+            width="900"
+            height="640"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- About Body Copy -->
+    <section class="about-intro-section" aria-label="Studio introduction">
+      <div class="about-intro-section__inner container">
+        <div class="about-intro-section__lead reveal-element" data-reveal-type="fade-up">
+          <p class="text-lead">
+            Founded in 2012, Caparros UI is an independent digital studio built on the belief
+            that great design is not a luxury — it is a competitive advantage.
+          </p>
+        </div>
+        <div class="about-intro-section__columns reveal-element" data-reveal-type="fade-up" data-reveal-delay="120">
+          <div class="about-intro-col">
+            <p>
+              We work with a select group of clients each year, keeping our engagements deep,
+              focused, and genuinely collaborative. We are not a factory. We are a carefully
+              assembled team of designers, engineers, and strategists who take real pride in
+              the work we produce together.
+            </p>
+          </div>
+          <div class="about-intro-col">
+            <p>
+              Every project we take on receives our full attention. We refuse shortcuts. We push
+              for originality over trend-following. And we measure success not just by aesthetics,
+              but by the real-world results our clients achieve from the work we create together.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section" aria-labelledby="valuesHeading">
+      <div class="values-section__inner container">
+        <div class="section-header reveal-element" data-reveal-type="fade-up">
+          <span class="eyebrow-label">Our Principles</span>
+          <h2 class="section-header__heading" id="valuesHeading">What guides<br /><em>everything we do.</em></h2>
+        </div>
+        <div class="values-grid">
+          <div class="value-card reveal-element" data-reveal-type="fade-up" data-reveal-delay="0">
+            <span class="value-card__number" aria-hidden="true">01</span>
+            <h3 class="value-card__title">Intention Over Speed</h3>
+            <p class="value-card__body">Every decision — visual or technical — must have a clear reason behind it. We never move fast at the expense of quality or purpose.</p>
+          </div>
+          <div class="value-card reveal-element" data-reveal-type="fade-up" data-reveal-delay="80">
+            <span class="value-card__number" aria-hidden="true">02</span>
+            <h3 class="value-card__title">Clarity of Communication</h3>
+            <p class="value-card__body">Great design communicates clearly. Great teams do too. We value transparency, directness, and honest dialogue with every client.</p>
+          </div>
+          <div class="value-card reveal-element" data-reveal-type="fade-up" data-reveal-delay="160">
+            <span class="value-card__number" aria-hidden="true">03</span>
+            <h3 class="value-card__title">Craft Without Compromise</h3>
+            <p class="value-card__body">We hold ourselves to an uncompromising standard in everything we produce — design, code, copy, and client experience alike.</p>
+          </div>
+          <div class="value-card reveal-element" data-reveal-type="fade-up" data-reveal-delay="240">
+            <span class="value-card__number" aria-hidden="true">04</span>
+            <h3 class="value-card__title">Results That Matter</h3>
+            <p class="value-card__body">Beautiful work means nothing if it does not perform. We design with both the human and the business objective in clear focus at all times.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" aria-labelledby="teamHeading">
+      <div class="team-section__inner container">
+        <div class="section-header reveal-element" data-reveal-type="fade-up">
+          <span class="eyebrow-label">The Team</span>
+          <h2 class="section-header__heading" id="teamHeading">The people<br />behind the <em>work.</em></h2>
+        </div>
+        <div class="team-grid">
+
+          <div class="team-member-card reveal-element" data-reveal-type="fade-up" data-reveal-delay="0">
+            <div class="team-member-card__photo-wrapper">
+              <img src="https://picsum.photos/seed/team-1/500/600" alt="Portrait of Rafael Caparros, Founder and Creative Director" class="team-member-card__photo" loading="lazy" width="500" height="600" />
+            </div>
+            <div class="team-member-card__info">
+              <h3 class="team-member-card__name">Rafael Caparros</h3>
+              <span class="team-member-card__role">Founder &amp; Creative Director</span>
+            </div>
+          </div>
+
+          <div class="team-member-card reveal-element" data-reveal-type="fade-up" data-reveal-delay="80">
+            <div class="team-member-card__photo-wrapper">
+              <img src="https://picsum.photos/seed/team-2/500/600" alt="Portrait of Elise Fontaine, Head of Design" class="team-member-card__photo" loading="lazy" width="500" height="600" />
+            </div>
+            <div class="team-member-card__info">
+              <h3 class="team-member-card__name">Elise Fontaine</h3>
+              <span class="team-member-card__role">Head of Design</span>
+            </div>
+          </div>
+
+          <div class="team-member-card reveal-element" data-reveal-type="fade-up" data-reveal-delay="160">
+            <div class="team-member-card__photo-wrapper">
+              <img src="https://picsum.photos/seed/team-3/500/600" alt="Portrait of Marcus Devlin, Lead Front-End Engineer" class="team-member-card__photo" loading="lazy" width="500" height="600" />
+            </div>
+            <div class="team-member-card__info">
+              <h3 class="team-member-card__name">Marcus Devlin</h3>
+              <span class="team-member-card__role">Lead Front-End Engineer</span>
+            </div>
+          </div>
+
+          <div class="team-member-card reveal-element" data-reveal-type="fade-up" data-reveal-delay="240">
+            <div class="team-member-card__photo-wrapper">
+              <img src="https://picsum.photos/seed/team-4/500/600" alt="Portrait of Yuki Tanaka, Strategy Lead" class="team-member-card__photo" loading="lazy" width="500" height="600" />
+            </div>
+            <div class="team-member-card__info">
+              <h3 class="team-member-card__name">Yuki Tanaka</h3>
+              <span class="team-member-card__role">Strategy Lead</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- About CTA -->
+    <section class="cta-section" aria-labelledby="aboutCtaHeading">
+      <div class="cta-section__inner container">
+        <div class="cta-section__content reveal-element" data-reveal-type="fade-up">
+          <span class="eyebrow-label eyebrow-label--on-dark">Let's Collaborate</span>
+          <h2 class="cta-section__headline" id="aboutCtaHeading">
+            Your vision,<br /><em>our expertise.</em>
+          </h2>
+          <p class="cta-section__body-text">
+            We take on a limited number of new projects each quarter to ensure every
+            client receives our undivided focus. Let us talk about yours.
+          </p>
+          <div class="cta-section__actions">
+            <a href="contact.html" class="btn btn--gold btn--large">
+              <span class="btn__label">Get in Touch</span>
+              <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+        <div class="cta-section__decoration" aria-hidden="true">
+          <div class="cta-section__decoration-circle cta-section__decoration-circle--large"></div>
+          <div class="cta-section__decoration-circle cta-section__decoration-circle--small"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (identical structure to index.html) -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__main container">
+      <div class="footer-col footer-col--brand">
+        <a href="index.html" class="footer-logo" aria-label="Caparros UI">
+          <span class="footer-logo__wordmark">Caparros<span class="footer-logo__accent">UI</span></span>
+        </a>
+        <p class="footer-brand__tagline">Premium web design and digital agency.<br />Crafting excellence since 2012.</p>
+        <div class="footer-social-links">
+          <a href="#" class="footer-social-link" aria-label="LinkedIn"><span class="footer-social-link__label">Li</span></a>
+          <a href="#" class="footer-social-link" aria-label="Instagram"><span class="footer-social-link__label">Ig</span></a>
+          <a href="#" class="footer-social-link" aria-label="Dribbble"><span class="footer-social-link__label">Dr</span></a>
+          <a href="#" class="footer-social-link" aria-label="Behance"><span class="footer-social-link__label">Be</span></a>
+        </div>
+      </div>
+      <nav class="footer-col footer-col--nav" aria-label="Footer primary navigation">
+        <h3 class="footer-col__heading">Company</h3>
+        <ul class="footer-nav-list" role="list">
+          <li><a href="about.html" class="footer-nav-link">About Us</a></li>
+          <li><a href="work.html" class="footer-nav-link">Our Work</a></li>
+          <li><a href="index.html#services" class="footer-nav-link">Services</a></li>
+          <li><a href="index.html#insights" class="footer-nav-link">Insights</a></li>
+          <li><a href="contact.html" class="footer-nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col footer-col--services">
+        <h3 class="footer-col__heading">Services</h3>
+        <ul class="footer-nav-list" role="list">
+          <li><a href="services.html#website-design" class="footer-nav-link">Website Design</a></li>
+          <li><a href="services.html#brand-identity" class="footer-nav-link">Brand Identity</a></li>
+          <li><a href="services.html#digital-strategy" class="footer-nav-link">Digital Strategy</a></li>
+          <li><a href="services.html#ux-research" class="footer-nav-link">UX Research</a></li>
+          <li><a href="services.html#development" class="footer-nav-link">Development</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-col--contact">
+        <h3 class="footer-col__heading">Get in Touch</h3>
+        <address class="footer-contact-details">
+          <p class="footer-contact-details__line"><a href="mailto:hello@caparrosui.com" class="footer-contact-link">hello@caparrosui.com</a></p>
+          <p class="footer-contact-details__line"><a href="tel:+14085550123" class="footer-contact-link">+1 (408) 555-0123</a></p>
+          <p class="footer-contact-details__line footer-contact-details__line--address">350 Mission Street, Suite 1200<br />San Jose, CA 95110</p>
+        </address>
+        <a href="contact.html" class="btn btn--outline btn--small footer-cta-btn">
+          <span class="btn__label">Start a Project</span>
+          <span class="btn__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <div class="container">
+        <div class="footer-bottom-bar">
+          <p class="footer-bottom-bar__copyright">&copy; <span id="footerYear"></span> Caparros UI. All rights reserved.</p>
+          <nav class="footer-bottom-bar__legal-links" aria-label="Legal navigation">
+            <a href="privacy.html" class="footer-legal-link">Privacy Policy</a>
+            <a href="terms.html" class="footer-legal-link">Terms of Use</a>
+            <a href="sitemap.html" class="footer-legal-link">Sitemap</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/ui-helpers.js"></script>
+  <script src="scripts/navigation.js"></script>
+  <script src="scripts/scroll-effects.js"></script>
+  <script src="scripts/animations.js"></script>
+  <script src="scripts/portfolio.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>

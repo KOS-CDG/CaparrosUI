@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Caparros UI — A premium digital design and development studio crafting elevated web experiences for forward-thinking brands." />
+  <meta name="theme-color" content="#F7F3ED" />
+  <title>Caparros UI — Web Design &amp; Digital Agency</title>
+
+  <!--
+    GOOGLE FONTS
+    Cormorant Garamond: elegant serif for headings and display text
+    Inter: clean sans-serif for body copy and UI elements
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!--
+    CSS FILES — loaded in cascade order:
+    1. variables  → design tokens (colors, spacing, fonts)
+    2. reset      → browser normalization
+    3. base       → typography and element defaults
+    4. layout     → section structure and containers
+    5. utilities  → helper classes
+    6. components → all UI component styles
+    7. animations → keyframes and reveal classes
+    8. responsive → media queries for all breakpoints
+  -->
+  <link rel="stylesheet" href="styles/variables.css" />
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/utilities.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/animations.css" />
+  <link rel="stylesheet" href="styles/responsive.css" />
+</head>
+
+<body class="site-body" data-page="home">
+
+  <!-- ============================================================
+       CUSTOM CURSOR
+       Decorative dual-element cursor: a small dot and a larger
+       trailing ring. Positioned and scaled via ui-helpers.js.
+  ============================================================ -->
+  <div class="custom-cursor" id="customCursor" aria-hidden="true">
+    <div class="custom-cursor__dot"></div>
+    <div class="custom-cursor__ring"></div>
+  </div>
+
+  <!-- ============================================================
+       PAGE LOADER
+       Visible on first load only. Fades out after animations.js
+       completes the entrance sequence (~1.2s).
+  ============================================================ -->
+  <div class="page-loader" id="pageLoader" aria-hidden="true">
+    <div class="page-loader__inner">
+      <span class="page-loader__brand">Caparros UI</span>
+      <div class="page-loader__bar-track">
+        <div class="page-loader__bar-fill" id="loaderBarFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SITE HEADER
+       Sticky navigation header. Gains .is-scrolled class via
+       navigation.js once the user scrolls past 60px. Contains
+       logo, desktop nav links, CTA button, and mobile toggle.
+  ============================================================ -->
+  <header class="site-header" id="siteHeader" role="banner">
+    <div class="site-header__inner container">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="nav-logo" aria-label="Caparros UI — Return to homepage">
+        <span class="nav-logo__wordmark">Caparros<span class="nav-logo__accent">UI</span></span>
+      </a>
+
+      <!-- Primary Desktop Navigation -->
+      <nav class="site-nav" id="siteNav" role="navigation" aria-label="Primary navigation">
+        <ul class="nav-menu" role="list">
+          <li class="nav-menu__item">
+            <a href="#featured-work" class="nav-menu__link" data-scroll-target="featured-work">Work</a>
+          </li>
+          <li class="nav-menu__item">
+            <a href="#services" class="nav-menu__link" data-scroll-target="services">Services</a>
+          </li>
+          <li class="nav-menu__item">
+            <a href="#insights" class="nav-menu__link" data-scroll-target="insights">Insights</a>
+          </li>
+          <li class="nav-menu__item">
+            <a href="about.html" class="nav-menu__link">About</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Header CTA -->
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn--primary btn--small">
+          <span class="btn__label">Start a Project</span>
+          <span class="btn__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+        <span class="nav-toggle__line nav-toggle__line--top"></span>
+        <span class="nav-toggle__line nav-toggle__line--mid"></span>
+        <span class="nav-toggle__line nav-toggle__line--bot"></span>
+      </button>
+
+    </div>
+
+    <!-- -------------------------------------------------------
+         MOBILE MENU OVERLAY
+         Full-screen overlay that slides in when the toggle is
+         clicked. Managed entirely by navigation.js.
+    ------------------------------------------------------- -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation menu" aria-hidden="true">
+      <div class="mobile-menu__inner">
+
+        <nav class="mobile-menu__nav" aria-label="Mobile primary navigation">
+          <ul class="mobile-menu__list" role="list">
+            <li class="mobile-menu__item">
+              <a href="#featured-work" class="mobile-menu__link" data-index="01">Work</a>
+            </li>
+            <li class="mobile-menu__item">
+              <a href="#services" class="mobile-menu__link" data-index="02">Services</a>
+            </li>
+            <li class="mobile-menu__item">
+              <a href="#insights" class="mobile-menu__link" data-index="03">Insights</a>
+            </li>
+            <li class="mobile-menu__item">
+              <a href="about.html" class="mobile-menu__link" data-index="04">About</a>
+            </li>
+            <li class="mobile-menu__item">
+              <a href="contact.html" class="mobile-menu__link" data-index="05">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="mobile-menu__footer">
+          <p class="mobile-menu__tagline">Crafting digital excellence since 2012.</p>
+          <div class="mobile-menu__social-links">
+            <a href="#" class="mobile-menu__social-link" aria-label="LinkedIn">LinkedIn</a>
+            <a href="#" class="mobile-menu__social-link" aria-label="Instagram">Instagram</a>
+            <a href="#" class="mobile-menu__social-link" aria-label="Dribbble">Dribbble</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </header>
+  <!-- /site-header -->
+
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main class="site-main" id="siteMain" role="main">
+
+
+    <!-- ==========================================================
+         HERO SECTION
+         Full-viewport opening section. Headline text uses a
+         clip-up reveal animation triggered by animations.js on
+         page load. Stats strip and scroll indicator fade in after.
+    ========================================================== -->
+    <section class="hero-section" id="hero" aria-labelledby="heroHeadline">
+
+      <!-- Decorative gradient background -->
+      <div class="hero-section__background" aria-hidden="true">
+        <div class="hero-section__bg-gradient"></div>
+        <div class="hero-section__bg-texture"></div>
+      </div>
+
+      <!-- Hero Main Content -->
+      <div class="hero-section__content container">
+
+        <!-- Eyebrow Label -->
+        <div class="hero-section__eyebrow hero-entrance-element" data-entrance-order="1">
+          <span class="eyebrow-label">Web Design &amp; Digital Agency — Est. 2012</span>
+        </div>
+
+        <!-- Headline: Each line wrapped for clip-up reveal -->
+        <h1
+          class="hero-section__headline"
+          id="heroHeadline"
+          aria-label="We build digital experiences that define remarkable brands."
+        >
+          <span class="hero-headline__line hero-entrance-element" data-entrance-order="2">
+            <span class="hero-headline__inner">We build digital</span>
+          </span>
+          <span class="hero-headline__line hero-entrance-element" data-entrance-order="3">
+            <span class="hero-headline__inner hero-headline__inner--italic">experiences</span>
+          </span>
+          <span class="hero-headline__line hero-entrance-element" data-entrance-order="4">
+            <span class="hero-headline__inner">that define brands.</span>
+          </span>
+        </h1>
+
+        <!-- Description and Action Buttons -->
+        <div class="hero-section__body hero-entrance-element" data-entrance-order="5">
+          <p class="hero-section__description">
+            Caparros UI is a premium design and development studio partnering with
+            visionary companies to craft elevated digital presences that perform as
+            beautifully as they look.
+          </p>
+          <div class="hero-section__actions">
+            <a href="#featured-work" class="btn btn--primary btn--large" data-smooth-scroll>
+              <span class="btn__label">View Our Work</span>
+              <span class="btn__arrow" aria-hidden="true">↓</span>
+            </a>
+            <a href="contact.html" class="btn btn--ghost btn--large">
+              <span class="btn__label">Start a Project</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+      <!-- /hero-section__content -->
+
+      <!-- Hero Stats Strip -->
+      <div class="hero-section__stats-strip hero-entrance-element" data-entrance-order="6">
+        <div class="container">
+          <div class="hero-stats">
+            <div class="hero-stat-item">
+              <span class="hero-stat-item__number">200+</span>
+              <span class="hero-stat-item__label">Projects Delivered</span>
+            </div>
+            <div class="hero-stats__divider" aria-hidden="true"></div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-item__number">12</span>
+              <span class="hero-stat-item__label">Years of Excellence</span>
+            </div>
+            <div class="hero-stats__divider" aria-hidden="true"></div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-item__number">98%</span>
+              <span class="hero-stat-item__label">Client Satisfaction</span>
+            </div>
+            <div class="hero-stats__divider" aria-hidden="true"></div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-item__number">40+</span>
+              <span class="hero-stat-item__label">Industry Awards</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="hero-section__scroll-indicator hero-entrance-element" data-entrance-order="6" aria-hidden="true">
+        <div class="scroll-indicator">
+          <div class="scroll-indicator__track">
+            <div class="scroll-indicator__thumb"></div>
+          </div>
+          <span class="scroll-indicator__label">Scroll</span>
+        </div>
+      </div>
+
+    </section>
+    <!-- /hero-section -->
+
+
+    <!-- ==========================================================
+         MARQUEE BAND
+         Continuous horizontal scrolling text strip. Acts as a
+         visual separator between hero and portfolio. Pure CSS
+         animation — no JavaScript required.
+    ========================================================== -->
+    <div class="marquee-band" aria-hidden="true">
+      <div class="marquee-band__track">
+        <!-- Content duplicated to create seamless loop -->
+        <div class="marquee-band__content marquee-band__content--primary">
+          <span class="marquee-item">Web Design</span>
+          <span class="marquee-separator">✦</span>
+          <span class="marquee-item">Brand Identity</span>
+          <span class="marquee-separator">✦</span>
+          <span class="marquee-item">Digital Strategy</span>
+          <span class="marquee-separator">✦</span>
+          <span class="marquee-item">UX &amp; UI Design</span>
+          <span class="marquee-separator">✦</span>
+          <span class="marquee-item">Front-End Development</span>
+          <span class="marquee-separator">✦</span>
+          <span class="marquee-item">Creative Direction</span>
+          <span class="marquee-separator">✦</span>
+          <span class="marquee-item">Web Design</span>
+          <span class="marquee-separator">✦</span>
+          <span class="marquee-item">Brand Identity</span>
+          <span class="marquee-separator">✦</span>
+          <span class="marquee-item">Digital Strategy</span>
+          <span class="marquee-separator">✦</span>
+          <span class="marquee-item">UX &amp; UI Design</span>
+          <span class="marquee-separator">✦</span>
+          <span class="marquee-item">Front-End Development</span>
+          <span class="marquee-separator">✦</span>
+          <span class="marquee-item">Creative Direction</span>
+          <span class="marquee-separator">✦</span>
+        </div>
+      </div>
+    </div>
+    <!-- /marquee-band -->
+
+
+    <!-- ==========================================================
+         FEATURED WORK SECTION
+         Portfolio grid showcasing selected client projects. Cards
+         have image zoom hover, category label, title, and an arrow
+         overlay. Hover interaction managed by portfolio.js.
+    ========================================================== -->
+    <section class="featured-work-section" id="featured-work" aria-labelledby="featuredWorkHeading">
+
+      <div class="featured-work-section__header container">
+        <div class="section-header reveal-element" data-reveal-type="fade-up">
+          <span class="eyebrow-label" id="featuredWorkEyebrow">Featured Work</span>
+          <h2 class="section-header__heading" id="featuredWorkHeading">
+            Selected <em>projects</em><br />we're proud of.
+          </h2>
+        </div>
+        <div class="section-header__cta reveal-element" data-reveal-type="fade-up" data-reveal-delay="150">
+          <a href="work.html" class="btn btn--outline">
+            <span class="btn__label">View All Work</span>
+            <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Portfolio Grid — two large + four medium cards -->
+      <div class="portfolio-grid container" id="portfolioGrid">
+
+        <!-- Card 1: Large/Feature -->
+        <article
+          class="portfolio-card portfolio-card--large reveal-element"
+          data-reveal-type="fade-up"
+          data-project="meridian-capital"
+        >
+          <a href="#" class="portfolio-card__link" aria-label="View Meridian Capital project">
+            <div class="portfolio-card__media-wrapper">
+              <img
+                src="https://picsum.photos/seed/meridian/1200/800"
+                alt="Meridian Capital corporate website design — dark finance theme"
+                class="portfolio-card__image"
+                loading="lazy"
+                width="1200"
+                height="800"
+              />
+              <div class="portfolio-card__media-overlay" aria-hidden="true">
+                <span class="portfolio-card__overlay-arrow">↗</span>
+              </div>
+            </div>
+            <div class="portfolio-card__details">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__category">Financial Services</span>
+                <span class="portfolio-card__year">2024</span>
+              </div>
+              <h3 class="portfolio-card__name">Meridian Capital</h3>
+              <p class="portfolio-card__type">Brand Identity &amp; Corporate Website</p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card 2: Medium -->
+        <article
+          class="portfolio-card portfolio-card--medium reveal-element"
+          data-reveal-type="fade-up"
+          data-reveal-delay="80"
+          data-project="solenne-beauty"
+        >
+          <a href="#" class="portfolio-card__link" aria-label="View Solenne Beauty project">
+            <div class="portfolio-card__media-wrapper">
+              <img
+                src="https://picsum.photos/seed/solenne/800/640"
+                alt="Solenne Beauty luxury e-commerce website design"
+                class="portfolio-card__image"
+                loading="lazy"
+                width="800"
+                height="640"
+              />
+              <div class="portfolio-card__media-overlay" aria-hidden="true">
+                <span class="portfolio-card__overlay-arrow">↗</span>
+              </div>
+            </div>
+            <div class="portfolio-card__details">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__category">Luxury Beauty</span>
+                <span class="portfolio-card__year">2024</span>
+              </div>
+              <h3 class="portfolio-card__name">Solenne Beauty</h3>
+              <p class="portfolio-card__type">E-Commerce Design &amp; Development</p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card 3: Medium -->
+        <article
+          class="portfolio-card portfolio-card--medium reveal-element"
+          data-reveal-type="fade-up"
+          data-reveal-delay="160"
+          data-project="arcta-labs"
+        >
+          <a href="#" class="portfolio-card__link" aria-label="View Arcta Labs project">
+            <div class="portfolio-card__media-wrapper">
+              <img
+                src="https://picsum.photos/seed/arctalabs/800/640"
+                alt="Arcta Labs technology product website design"
+                class="portfolio-card__image"
+                loading="lazy"
+                width="800"
+                height="640"
+              />
+              <div class="portfolio-card__media-overlay" aria-hidden="true">
+                <span class="portfolio-card__overlay-arrow">↗</span>
+              </div>
+            </div>
+            <div class="portfolio-card__details">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__category">Technology</span>
+                <span class="portfolio-card__year">2024</span>
+              </div>
+              <h3 class="portfolio-card__name">Arcta Labs</h3>
+              <p class="portfolio-card__type">Product &amp; Corporate Website</p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card 4: Small -->
+        <article
+          class="portfolio-card portfolio-card--small reveal-element"
+          data-reveal-type="fade-up"
+          data-reveal-delay="0"
+          data-project="vellum-publishing"
+        >
+          <a href="#" class="portfolio-card__link" aria-label="View Vellum Publishing project">
+            <div class="portfolio-card__media-wrapper">
+              <img
+                src="https://picsum.photos/seed/vellum/700/560"
+                alt="Vellum Publishing editorial website design"
+                class="portfolio-card__image"
+                loading="lazy"
+                width="700"
+                height="560"
+              />
+              <div class="portfolio-card__media-overlay" aria-hidden="true">
+                <span class="portfolio-card__overlay-arrow">↗</span>
+              </div>
+            </div>
+            <div class="portfolio-card__details">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__category">Publishing</span>
+                <span class="portfolio-card__year">2023</span>
+              </div>
+              <h3 class="portfolio-card__name">Vellum Publishing</h3>
+              <p class="portfolio-card__type">Editorial Website</p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card 5: Small -->
+        <article
+          class="portfolio-card portfolio-card--small reveal-element"
+          data-reveal-type="fade-up"
+          data-reveal-delay="80"
+          data-project="novatek-solutions"
+        >
+          <a href="#" class="portfolio-card__link" aria-label="View Novatek Solutions project">
+            <div class="portfolio-card__media-wrapper">
+              <img
+                src="https://picsum.photos/seed/novatek/700/560"
+                alt="Novatek Solutions SaaS platform design"
+                class="portfolio-card__image"
+                loading="lazy"
+                width="700"
+                height="560"
+              />
+              <div class="portfolio-card__media-overlay" aria-hidden="true">
+                <span class="portfolio-card__overlay-arrow">↗</span>
+              </div>
+            </div>
+            <div class="portfolio-card__details">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__category">SaaS / B2B</span>
+                <span class="portfolio-card__year">2023</span>
+              </div>
+              <h3 class="portfolio-card__name">Novatek Solutions</h3>
+              <p class="portfolio-card__type">SaaS Platform Design</p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card 6: Large/Feature End -->
+        <article
+          class="portfolio-card portfolio-card--large reveal-element"
+          data-reveal-type="fade-up"
+          data-reveal-delay="160"
+          data-project="castleford-group"
+        >
+          <a href="#" class="portfolio-card__link" aria-label="View Castleford Group project">
+            <div class="portfolio-card__media-wrapper">
+              <img
+                src="https://picsum.photos/seed/castleford/1200/800"
+                alt="Castleford Group real estate corporate website"
+                class="portfolio-card__image"
+                loading="lazy"
+                width="1200"
+                height="800"
+              />
+              <div class="portfolio-card__media-overlay" aria-hidden="true">
+                <span class="portfolio-card__overlay-arrow">↗</span>
+              </div>
+            </div>
+            <div class="portfolio-card__details">
+              <div class="portfolio-card__meta">
+                <span class="portfolio-card__category">Real Estate</span>
+                <span class="portfolio-card__year">2024</span>
+              </div>
+              <h3 class="portfolio-card__name">Castleford Group</h3>
+              <p class="portfolio-card__type">Corporate Website &amp; Brand Refresh</p>
+            </div>
+          </a>
+        </article>
+
+      </div>
+      <!-- /portfolio-grid -->
+
+    </section>
+    <!-- /featured-work-section -->
+
+
+    <!-- ==========================================================
+         AGENCY STATEMENT SECTION
+         Dark-themed section with a powerful brand statement,
+         brief description, and a strip of client brand names.
+    ========================================================== -->
+    <section class="agency-statement-section" aria-labelledby="agencyStatementHeading">
+
+      <div class="agency-statement-section__content container">
+
+        <div class="agency-statement-section__left reveal-element" data-reveal-type="fade-up">
+          <span class="eyebrow-label eyebrow-label--on-dark">A Digital Agency</span>
+          <h2 class="agency-statement-section__headline" id="agencyStatementHeading">
+            We design and build websites that drive traffic,
+            <em>engagement,</em> and conversion for brands
+            that refuse to be ordinary.
+          </h2>
+        </div>
+
+        <div class="agency-statement-section__right reveal-element" data-reveal-type="fade-up" data-reveal-delay="150">
+          <p class="agency-statement-section__body-text">
+            From Silicon Valley to global markets, we partner with ambitious companies
+            to craft digital presences that perform as beautifully as they look. We are
+            designers, developers, strategists, and storytellers working in concert.
+          </p>
+          <a href="about.html" class="btn btn--light btn--large">
+            <span class="btn__label">Our Story</span>
+            <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Client Logos / Names Strip -->
+      <div class="client-strip container reveal-element" data-reveal-type="fade-up" data-reveal-delay="250">
+        <p class="client-strip__label">Trusted by industry leaders</p>
+        <div class="client-strip__logos">
+          <span class="client-strip__client-name">Meridian Capital</span>
+          <span class="client-strip__client-name">Solenne</span>
+          <span class="client-strip__client-name">Arcta Labs</span>
+          <span class="client-strip__client-name">Novatek</span>
+          <span class="client-strip__client-name">Vellum</span>
+          <span class="client-strip__client-name">Castleford</span>
+        </div>
+      </div>
+
+    </section>
+    <!-- /agency-statement-section -->
+
+
+    <!-- ==========================================================
+         SERVICES SECTION
+         Accordion-style list of services. Each item expands on
+         click to reveal a description and preview image. The
+         expand/collapse interaction is managed by portfolio.js
+         (the initializeServicesAccordion function).
+    ========================================================== -->
+    <section class="services-section" id="services" aria-labelledby="servicesHeading">
+
+      <div class="services-section__header container">
+        <div class="section-header reveal-element" data-reveal-type="fade-up">
+          <span class="eyebrow-label">What We Do</span>
+          <h2 class="section-header__heading" id="servicesHeading">
+            What we know<br />and <em>do best.</em>
+          </h2>
+        </div>
+      </div>
+
+      <div class="services-accordion container" id="servicesAccordion" role="list">
+
+        <!-- Service: Website Design -->
+        <div class="service-item reveal-element" data-reveal-type="fade-up" data-reveal-delay="0" role="listitem">
+          <button
+            class="service-item__header"
+            aria-expanded="false"
+            aria-controls="service-panel-1"
+            id="service-btn-1"
+            type="button"
+          >
+            <div class="service-item__header-left">
+              <span class="service-item__number" aria-hidden="true">01</span>
+              <span class="service-item__title">Website Design &amp; Development</span>
+            </div>
+            <div class="service-item__header-right">
+              <div class="service-item__tags" aria-hidden="true">
+                <span class="service-tag">Strategy</span>
+                <span class="service-tag">UX Design</span>
+                <span class="service-tag">Development</span>
+              </div>
+              <span class="service-item__toggle" aria-hidden="true">
+                <span class="service-item__toggle-icon">+</span>
+              </span>
+            </div>
+          </button>
+          <div
+            class="service-item__panel"
+            id="service-panel-1"
+            role="region"
+            aria-labelledby="service-btn-1"
+            hidden
+          >
+            <div class="service-item__panel-inner">
+              <div class="service-item__description">
+                <p>
+                  We craft impactful digital experiences through meticulous UX architecture,
+                  premium visual design, and clean, performant front-end development. Every
+                  website we build is engineered for clarity, conversion, and lasting impression.
+                </p>
+                <a href="services.html#website-design" class="inline-text-link">
+                  Learn more <span aria-hidden="true">→</span>
+                </a>
+              </div>
+              <div class="service-item__preview" aria-hidden="true">
+                <img
+                  src="https://picsum.photos/seed/service-web/600/400"
+                  alt=""
+                  class="service-item__preview-image"
+                  loading="lazy"
+                  width="600"
+                  height="400"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service: Brand Identity -->
+        <div class="service-item reveal-element" data-reveal-type="fade-up" data-reveal-delay="60" role="listitem">
+          <button
+            class="service-item__header"
+            aria-expanded="false"
+            aria-controls="service-panel-2"
+            id="service-btn-2"
+            type="button"
+          >
+            <div class="service-item__header-left">
+              <span class="service-item__number" aria-hidden="true">02</span>
+              <span class="service-item__title">Brand Identity &amp; Creative</span>
+            </div>
+            <div class="service-item__header-right">
+              <div class="service-item__tags" aria-hidden="true">
+                <span class="service-tag">Branding</span>
+                <span class="service-tag">Visual Identity</span>
+                <span class="service-tag">Art Direction</span>
+              </div>
+              <span class="service-item__toggle" aria-hidden="true">
+                <span class="service-item__toggle-icon">+</span>
+              </span>
+            </div>
+          </button>
+          <div
+            class="service-item__panel"
+            id="service-panel-2"
+            role="region"
+            aria-labelledby="service-btn-2"
+            hidden
+          >
+            <div class="service-item__panel-inner">
+              <div class="service-item__description">
+                <p>
+                  We design visually compelling brand identities that communicate authority,
+                  trust, and vision. From logo systems and typography to color palettes and
+                  brand guidelines, we create cohesive identities built for scale and longevity.
+                </p>
+                <a href="services.html#brand-identity" class="inline-text-link">
+                  Learn more <span aria-hidden="true">→</span>
+                </a>
+              </div>
+              <div class="service-item__preview" aria-hidden="true">
+                <img
+                  src="https://picsum.photos/seed/service-brand/600/400"
+                  alt=""
+                  class="service-item__preview-image"
+                  loading="lazy"
+                  width="600"
+                  height="400"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service: Digital Strategy -->
+        <div class="service-item reveal-element" data-reveal-type="fade-up" data-reveal-delay="120" role="listitem">
+          <button
+            class="service-item__header"
+            aria-expanded="false"
+            aria-controls="service-panel-3"
+            id="service-btn-3"
+            type="button"
+          >
+            <div class="service-item__header-left">
+              <span class="service-item__number" aria-hidden="true">03</span>
+              <span class="service-item__title">Digital Strategy</span>
+            </div>
+            <div class="service-item__header-right">
+              <div class="service-item__tags" aria-hidden="true">
+                <span class="service-tag">Consulting</span>
+                <span class="service-tag">SEO</span>
+                <span class="service-tag">Analytics</span>
+              </div>
+              <span class="service-item__toggle" aria-hidden="true">
+                <span class="service-item__toggle-icon">+</span>
+              </span>
+            </div>
+          </button>
+          <div
+            class="service-item__panel"
+            id="service-panel-3"
+            role="region"
+            aria-labelledby="service-btn-3"
+            hidden
+          >
+            <div class="service-item__panel-inner">
+              <div class="service-item__description">
+                <p>
+                  We identify business challenges and develop evidence-based digital strategies
+                  that align your brand, technology, and audience. Our approach blends data
+                  intelligence with creative thinking to achieve measurable, lasting outcomes.
+                </p>
+                <a href="services.html#digital-strategy" class="inline-text-link">
+                  Learn more <span aria-hidden="true">→</span>
+                </a>
+              </div>
+              <div class="service-item__preview" aria-hidden="true">
+                <img
+                  src="https://picsum.photos/seed/service-strat/600/400"
+                  alt=""
+                  class="service-item__preview-image"
+                  loading="lazy"
+                  width="600"
+                  height="400"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service: UX Research -->
+        <div class="service-item reveal-element" data-reveal-type="fade-up" data-reveal-delay="180" role="listitem">
+          <button
+            class="service-item__header"
+            aria-expanded="false"
+            aria-controls="service-panel-4"
+            id="service-btn-4"
+            type="button"
+          >
+            <div class="service-item__header-left">
+              <span class="service-item__number" aria-hidden="true">04</span>
+              <span class="service-item__title">UX Research &amp; Design</span>
+            </div>
+            <div class="service-item__header-right">
+              <div class="service-item__tags" aria-hidden="true">
+                <span class="service-tag">Research</span>
+                <span class="service-tag">Prototyping</span>
+                <span class="service-tag">User Testing</span>
+              </div>
+              <span class="service-item__toggle" aria-hidden="true">
+                <span class="service-item__toggle-icon">+</span>
+              </span>
+            </div>
+          </button>
+          <div
+            class="service-item__panel"
+            id="service-panel-4"
+            role="region"
+            aria-labelledby="service-btn-4"
+            hidden
+          >
+            <div class="service-item__panel-inner">
+              <div class="service-item__description">
+                <p>
+                  We conduct deep user research, build wireframes and interactive prototypes,
+                  and validate assumptions through structured testing. Every decision we make
+                  is grounded in real user behavior, business goals, and design psychology.
+                </p>
+                <a href="services.html#ux-research" class="inline-text-link">
+                  Learn more <span aria-hidden="true">→</span>
+                </a>
+              </div>
+              <div class="service-item__preview" aria-hidden="true">
+                <img
+                  src="https://picsum.photos/seed/service-ux/600/400"
+                  alt=""
+                  class="service-item__preview-image"
+                  loading="lazy"
+                  width="600"
+                  height="400"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /services-accordion -->
+
+    </section>
+    <!-- /services-section -->
+
+
+    <!-- ==========================================================
+         PROCESS SECTION
+         Four-step numbered process display on a light stone
+         background. Cards stagger in on scroll via scroll-effects.
+    ========================================================== -->
+    <section class="process-section" aria-labelledby="processHeading">
+
+      <div class="process-section__header container">
+        <div class="section-header reveal-element" data-reveal-type="fade-up">
+          <span class="eyebrow-label">How We Work</span>
+          <h2 class="section-header__heading" id="processHeading">
+            Our refined<br /><em>process.</em>
+          </h2>
+        </div>
+      </div>
+
+      <div class="process-grid container">
+
+        <div class="process-step-card reveal-element" data-reveal-type="fade-up" data-reveal-delay="0">
+          <span class="process-step-card__number">01</span>
+          <h3 class="process-step-card__title">Discovery</h3>
+          <p class="process-step-card__description">
+            We learn your business, your audience, your goals, and your competition.
+            Deep discovery ensures every decision that follows is intentional and purposeful.
+          </p>
+        </div>
+
+        <div class="process-step-card reveal-element" data-reveal-type="fade-up" data-reveal-delay="100">
+          <span class="process-step-card__number">02</span>
+          <h3 class="process-step-card__title">Strategy</h3>
+          <p class="process-step-card__description">
+            We develop a clear roadmap — content architecture, sitemap, technical
+            requirements, and a design direction that aligns with your vision and budget.
+          </p>
+        </div>
+
+        <div class="process-step-card reveal-element" data-reveal-type="fade-up" data-reveal-delay="200">
+          <span class="process-step-card__number">03</span>
+          <h3 class="process-step-card__title">Design</h3>
+          <p class="process-step-card__description">
+            We translate strategy into high-fidelity visual designs that are precise,
+            intentional, and engineered to make an immediate, lasting impression.
+          </p>
+        </div>
+
+        <div class="process-step-card reveal-element" data-reveal-type="fade-up" data-reveal-delay="300">
+          <span class="process-step-card__number">04</span>
+          <h3 class="process-step-card__title">Build &amp; Launch</h3>
+          <p class="process-step-card__description">
+            We build with care and launch with confidence — tested across devices,
+            optimized for speed, and engineered for long-term performance and scale.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+    <!-- /process-section -->
+
+
+    <!-- ==========================================================
+         INSIGHTS SECTION
+         Editorial blog-style card grid with one large featured
+         article and two standard article cards.
+    ========================================================== -->
+    <section class="insights-section" id="insights" aria-labelledby="insightsHeading">
+
+      <div class="insights-section__header container">
+        <div class="section-header reveal-element" data-reveal-type="fade-up">
+          <span class="eyebrow-label">Latest Insights</span>
+          <h2 class="section-header__heading" id="insightsHeading">
+            Our thoughts on<br /><em>digital.</em>
+          </h2>
+        </div>
+        <div class="section-header__cta reveal-element" data-reveal-type="fade-up" data-reveal-delay="100">
+          <a href="insights.html" class="btn btn--outline">
+            <span class="btn__label">All Articles</span>
+            <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="insights-grid container">
+        <!-- Insight Article 1: Large/Featured -->
+        <article class="insight-card insight-card--large reveal-element" data-reveal-type="fade-up">
+          <a href="insights.html#digital-brand-trust" class="insight-card__link" aria-label="Read: Why Digital Brand Trust Is the New Conversion Rate">
+            <div class="insight-card__media-wrapper">
+              <img
+                src="https://picsum.photos/seed/insight-1/900/600"
+                alt="Abstract representation of digital brand trust and conversion"
+                class="insight-card__image"
+                loading="lazy"
+                width="900"
+                height="600"
+              />
+            </div>
+            <div class="insight-card__content">
+              <div class="insight-card__meta">
+                <span class="insight-card__category">Strategy</span>
+                <span class="insight-card__meta-separator" aria-hidden="true">·</span>
+                <time class="insight-card__date" datetime="2026-02-14">February 14, 2026</time>
+              </div>
+              <h3 class="insight-card__title">
+                Why Digital Brand Trust Is the New Conversion Rate
+              </h3>
+              <p class="insight-card__excerpt">
+                In 2026, the most valuable currency a brand owns is trust — and the primary
+                place it is built, tested, and won or lost is your website. We explore what
+                that means for how you design, write, and build your digital presence.
+              </p>
+              <span class="insight-card__read-more" aria-hidden="true">
+                Read Article <span class="insight-card__read-arrow">→</span>
+              </span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Insight Article 2: Standard -->
+        <article class="insight-card insight-card--standard reveal-element" data-reveal-type="fade-up" data-reveal-delay="100">
+          <a href="insights.html#typography-premium-design" class="insight-card__link" aria-label="Read: The Role of Typography in Premium Web Design">
+            <div class="insight-card__media-wrapper">
+              <img
+                src="https://picsum.photos/seed/insight-2/700/480"
+                alt="Close-up of elegant serif typography on screen"
+                class="insight-card__image"
+                loading="lazy"
+                width="700"
+                height="480"
+              />
+            </div>
+            <div class="insight-card__content">
+              <div class="insight-card__meta">
+                <span class="insight-card__category">Design</span>
+                <span class="insight-card__meta-separator" aria-hidden="true">·</span>
+                <time class="insight-card__date" datetime="2026-01-28">January 28, 2026</time>
+              </div>
+              <h3 class="insight-card__title">
+                The Quiet Power of Typography in Premium Web Design
+              </h3>
+              <p class="insight-card__excerpt">
+                Font choice is never accidental in award-winning websites. We break down the
+                principles behind type-led design and how to use it to command authority.
+              </p>
+              <span class="insight-card__read-more" aria-hidden="true">
+                Read Article <span class="insight-card__read-arrow">→</span>
+              </span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Insight Article 3: Standard -->
+        <article class="insight-card insight-card--standard reveal-element" data-reveal-type="fade-up" data-reveal-delay="200">
+          <a href="insights.html#motion-design-ux" class="insight-card__link" aria-label="Read: Motion Design Is Not Decoration — It Is Communication">
+            <div class="insight-card__media-wrapper">
+              <img
+                src="https://picsum.photos/seed/insight-3/700/480"
+                alt="Abstract motion blur representing UI animation principles"
+                class="insight-card__image"
+                loading="lazy"
+                width="700"
+                height="480"
+              />
+            </div>
+            <div class="insight-card__content">
+              <div class="insight-card__meta">
+                <span class="insight-card__category">Interaction</span>
+                <span class="insight-card__meta-separator" aria-hidden="true">·</span>
+                <time class="insight-card__date" datetime="2026-01-10">January 10, 2026</time>
+              </div>
+              <h3 class="insight-card__title">
+                Motion Design Is Not Decoration — It Is Communication
+              </h3>
+              <p class="insight-card__excerpt">
+                When motion is purposeful, it directs attention, communicates hierarchy,
+                and creates emotional resonance. Here is how we think about it in every project.
+              </p>
+              <span class="insight-card__read-more" aria-hidden="true">
+                Read Article <span class="insight-card__read-arrow">→</span>
+              </span>
+            </div>
+          </a>
+        </article>
+
+      </div>
+      <!-- /insights-grid -->
+
+    </section>
+    <!-- /insights-section -->
+
+
+    <!-- ==========================================================
+         TESTIMONIAL SECTION
+         A single large-format pull-quote testimonial with client
+         attribution. Alternating testimonials cycle via a subtle
+         fade if there are multiple (managed by ui-helpers.js).
+    ========================================================== -->
+    <section class="testimonial-section" aria-labelledby="testimonialHeading">
+
+      <div class="testimonial-section__inner container">
+
+        <div class="testimonial-quote-block reveal-element" data-reveal-type="fade-up">
+          <span class="testimonial-quote-block__mark" aria-hidden="true">"</span>
+          <blockquote class="testimonial-quote-block__quote" id="testimonialHeading">
+            <p class="testimonial-quote-block__text">
+              Caparros UI transformed our digital presence completely. The website they
+              built communicates our brand at the highest level — and the results in
+              engagement and lead generation have been remarkable.
+            </p>
+            <footer class="testimonial-quote-block__attribution">
+              <cite class="testimonial-quote-block__author">
+                <strong class="testimonial-quote-block__name">Alexandra Mercer</strong>
+                <span class="testimonial-quote-block__role">Chief Marketing Officer, Meridian Capital</span>
+              </cite>
+            </footer>
+          </blockquote>
+        </div>
+
+        <!-- Testimonial Navigation Dots -->
+        <div class="testimonial-dots" id="testimonialDots" role="tablist" aria-label="Testimonial navigation">
+          <button class="testimonial-dot testimonial-dot--active" role="tab" aria-selected="true" data-index="0" aria-label="Testimonial 1"></button>
+          <button class="testimonial-dot" role="tab" aria-selected="false" data-index="1" aria-label="Testimonial 2"></button>
+          <button class="testimonial-dot" role="tab" aria-selected="false" data-index="2" aria-label="Testimonial 3"></button>
+        </div>
+
+      </div>
+
+    </section>
+    <!-- /testimonial-section -->
+
+
+    <!-- ==========================================================
+         CALL-TO-ACTION SECTION
+         Full-width, high-contrast CTA section. Dark background,
+         centered headline, and two action buttons. Intended to
+         be the final conversion nudge before the footer.
+    ========================================================== -->
+    <section class="cta-section" aria-labelledby="ctaHeading">
+
+      <div class="cta-section__inner container">
+
+        <div class="cta-section__content reveal-element" data-reveal-type="fade-up">
+          <span class="eyebrow-label eyebrow-label--on-dark">Ready to Begin?</span>
+          <h2 class="cta-section__headline" id="ctaHeading">
+            Let's build something<br /><em>worth seeing.</em>
+          </h2>
+          <p class="cta-section__body-text">
+            Tell us about your project. We'll respond within one business day with
+            a thoughtful proposal tailored to your goals and timeline.
+          </p>
+          <div class="cta-section__actions">
+            <a href="contact.html" class="btn btn--gold btn--large">
+              <span class="btn__label">Start a Conversation</span>
+              <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="work.html" class="btn btn--ghost-light btn--large">
+              <span class="btn__label">Explore Our Work</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Decorative background element -->
+        <div class="cta-section__decoration" aria-hidden="true">
+          <div class="cta-section__decoration-circle cta-section__decoration-circle--large"></div>
+          <div class="cta-section__decoration-circle cta-section__decoration-circle--small"></div>
+        </div>
+
+      </div>
+
+    </section>
+    <!-- /cta-section -->
+
+
+  </main>
+  <!-- /site-main -->
+
+
+  <!-- ============================================================
+       SITE FOOTER
+       Three-column layout: brand + tagline, nav links, and
+       contact details. Bottom bar with copyright and legal links.
+  ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+
+    <div class="site-footer__main container">
+
+      <!-- Footer Column 1: Brand -->
+      <div class="footer-col footer-col--brand">
+        <a href="index.html" class="footer-logo" aria-label="Caparros UI — Return to homepage">
+          <span class="footer-logo__wordmark">Caparros<span class="footer-logo__accent">UI</span></span>
+        </a>
+        <p class="footer-brand__tagline">
+          Premium web design and digital agency.<br />Crafting excellence since 2012.
+        </p>
+        <div class="footer-social-links" aria-label="Social media links">
+          <a href="#" class="footer-social-link" aria-label="Caparros UI on LinkedIn">
+            <span class="footer-social-link__label">Li</span>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="Caparros UI on Instagram">
+            <span class="footer-social-link__label">Ig</span>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="Caparros UI on Dribbble">
+            <span class="footer-social-link__label">Dr</span>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="Caparros UI on Behance">
+            <span class="footer-social-link__label">Be</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer Column 2: Navigation -->
+      <nav class="footer-col footer-col--nav" aria-label="Footer primary navigation">
+        <h3 class="footer-col__heading">Company</h3>
+        <ul class="footer-nav-list" role="list">
+          <li><a href="about.html" class="footer-nav-link">About Us</a></li>
+          <li><a href="work.html" class="footer-nav-link">Our Work</a></li>
+          <li><a href="#services" class="footer-nav-link">Services</a></li>
+          <li><a href="insights.html" class="footer-nav-link">Insights</a></li>
+          <li><a href="contact.html" class="footer-nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Footer Column 3: Services -->
+      <div class="footer-col footer-col--services">
+        <h3 class="footer-col__heading">Services</h3>
+        <ul class="footer-nav-list" role="list">
+          <li><a href="services.html#website-design" class="footer-nav-link">Website Design</a></li>
+          <li><a href="services.html#brand-identity" class="footer-nav-link">Brand Identity</a></li>
+          <li><a href="services.html#digital-strategy" class="footer-nav-link">Digital Strategy</a></li>
+          <li><a href="services.html#ux-research" class="footer-nav-link">UX Research</a></li>
+          <li><a href="services.html#development" class="footer-nav-link">Development</a></li>
+        </ul>
+      </div>
+
+      <!-- Footer Column 4: Contact -->
+      <div class="footer-col footer-col--contact">
+        <h3 class="footer-col__heading">Get in Touch</h3>
+        <address class="footer-contact-details">
+          <p class="footer-contact-details__line">
+            <a href="mailto:hello@caparrosui.com" class="footer-contact-link">hello@caparrosui.com</a>
+          </p>
+          <p class="footer-contact-details__line">
+            <a href="tel:+14085550123" class="footer-contact-link">+1 (408) 555-0123</a>
+          </p>
+          <p class="footer-contact-details__line footer-contact-details__line--address">
+            350 Mission Street, Suite 1200<br />
+            San Jose, CA 95110
+          </p>
+        </address>
+        <a href="contact.html" class="btn btn--outline btn--small footer-cta-btn">
+          <span class="btn__label">Start a Project</span>
+          <span class="btn__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+    </div>
+    <!-- /site-footer__main -->
+
+    <!-- Footer Bottom Bar -->
+    <div class="site-footer__bottom">
+      <div class="container">
+        <div class="footer-bottom-bar">
+          <p class="footer-bottom-bar__copyright">
+            &copy; <span id="footerYear"></span> Caparros UI. All rights reserved.
+          </p>
+          <nav class="footer-bottom-bar__legal-links" aria-label="Legal navigation">
+            <a href="privacy.html" class="footer-legal-link">Privacy Policy</a>
+            <a href="terms.html" class="footer-legal-link">Terms of Use</a>
+            <a href="sitemap.html" class="footer-legal-link">Sitemap</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+  <!-- /site-footer -->
+
+
+  <!--
+    JAVASCRIPT FILES — loaded at end of body in dependency order:
+    1. app.js           → bootstraps and initializes all modules
+    2. navigation.js    → header scroll state + mobile menu
+    3. scroll-effects.js → scroll reveal, parallax
+    4. animations.js    → page loader + hero entrance sequence
+    5. portfolio.js     → project hover + services accordion
+    6. ui-helpers.js    → cursor, smooth scroll, footer year
+  -->
+  <script src="scripts/ui-helpers.js"></script>
+  <script src="scripts/navigation.js"></script>
+  <script src="scripts/scroll-effects.js"></script>
+  <script src="scripts/animations.js"></script>
+  <script src="scripts/portfolio.js"></script>
+  <script src="scripts/app.js"></script>
+
+</body>
+</html>
