@@ -1,0 +1,176 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "color": {
+    "$type": "color",
+    "brut-bg": {
+      "$value": "#F5F0E8",
+      "$description": "Off-white cream base background"
+    },
+    "brut-black": {
+      "$value": "#0A0A0A",
+      "$description": "Near-black primary text and border color"
+    },
+    "brut-white": {
+      "$value": "#FFFFFF",
+      "$description": "Pure white"
+    },
+    "brut-yellow": {
+      "$value": "#FFEB00",
+      "$description": "Electric yellow — primary accent"
+    },
+    "brut-red": {
+      "$value": "#FF3B00",
+      "$description": "Brutal red — secondary accent"
+    },
+    "brut-blue": {
+      "$value": "#0033FF",
+      "$description": "Raw blue — tertiary accent"
+    },
+    "brut-surface": {
+      "$value": "#1A1A1A",
+      "$description": "Dark section background"
+    }
+  },
+  "spacing": {
+    "$type": "dimension",
+    "1": { "$value": "4px" },
+    "2": { "$value": "8px" },
+    "3": { "$value": "12px" },
+    "4": { "$value": "16px" },
+    "5": { "$value": "20px" },
+    "6": { "$value": "24px" },
+    "8": { "$value": "32px" },
+    "10": { "$value": "40px" },
+    "12": { "$value": "48px" },
+    "16": { "$value": "64px" },
+    "20": { "$value": "80px" },
+    "24": { "$value": "96px"  }
+  },
+  "fontFamily": {
+    "$type": "fontFamily",
+    "grotesk": {
+      "$value": ["Space Grotesk", "sans-serif"],
+      "$description": "Primary heading font"
+    },
+    "mono": {
+      "$value": ["IBM Plex Mono", "monospace"],
+      "$description": "Monospace accent font for labels and tags"
+    },
+    "sans": {
+      "$value": ["Inter", "sans-serif"],
+      "$description": "Body text font"
+    }
+  },
+  "fontSize": {
+    "$type": "dimension",
+    "hero": {
+      "$value": "clamp(56px, 10vw, 128px)",
+      "$description": "Hero headline — Space Grotesk 800"
+    },
+    "section-title": {
+      "$value": "clamp(36px, 6vw, 72px)",
+      "$description": "Section headline — Space Grotesk 700"
+    },
+    "sub-headline": {
+      "$value": "clamp(20px, 3vw, 32px)",
+      "$description": "Sub-headline — Space Grotesk 700"
+    },
+    "body": {
+      "$value": "16px",
+      "$description": "Body text — Inter 400, 16–18px"
+    },
+    "mono-label": {
+      "$value": "12px",
+      "$description": "Monospace label — IBM Plex Mono 500"
+    }
+  },
+  "fontWeight": {
+    "regular": { "$value": 400 },
+    "medium": { "$value": 500 },
+    "bold": { "$value": 700 },
+    "black": { "$value": 800 }
+  },
+  "lineHeight": {
+    "tight": { "$value": "1.0" },
+    "snug": { "$value": "1.25" },
+    "normal": { "$value": "1.6" }
+  },
+  "letterSpacing": {
+    "tightest": { "$value": "-0.04em" },
+    "tight": { "$value": "-0.03em" },
+    "normal": { "$value": "0em" },
+    "wide": { "$value": "0.05em" },
+    "widest": { "$value": "0.1em" }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "brutal": {
+      "$value": {
+        "offsetX": "4px",
+        "offsetY": "4px",
+        "blur": "0px",
+        "spread": "0px",
+        "color": "#0A0A0A"
+      },
+      "$description": "Standard hard offset shadow"
+    },
+    "brutal-lg": {
+      "$value": {
+        "offsetX": "6px",
+        "offsetY": "6px",
+        "blur": "0px",
+        "spread": "0px",
+        "color": "#0A0A0A"
+      },
+      "$description": "Heavy hard offset shadow — hover state"
+    },
+    "brutal-accent": {
+      "$value": {
+        "offsetX": "4px",
+        "offsetY": "4px",
+        "blur": "0px",
+        "spread": "0px",
+        "color": "#FFEB00"
+      },
+      "$description": "Yellow accent offset shadow"
+    },
+    "brutal-sm": {
+      "$value": {
+        "offsetX": "2px",
+        "offsetY": "2px",
+        "blur": "0px",
+        "spread": "0px",
+        "color": "#0A0A0A"
+      },
+      "$description": "Small hard offset shadow — pressed state"
+    }
+  },
+  "border": {
+    "standard": {
+      "$value": "2px solid #0A0A0A",
+      "$description": "Standard border"
+    },
+    "heavy": {
+      "$value": "3px solid #0A0A0A",
+      "$description": "Heavy border"
+    },
+    "accent-yellow": {
+      "$value": "3px solid #FFEB00",
+      "$description": "Yellow accent border"
+    },
+    "accent-red": {
+      "$value": "3px solid #FF3B00",
+      "$description": "Red accent border"
+    },
+    "accent-blue": {
+      "$value": "3px solid #0033FF",
+      "$description": "Blue accent border"
+    }
+  },
+  "transition": {
+    "fast": {
+      "$value": "120ms ease-out",
+      "$description": "Snappy interactive transition — all interactive elements"
+    }
+  }
+}
