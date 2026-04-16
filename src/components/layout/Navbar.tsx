@@ -9,6 +9,7 @@ const navLinks: NavLink[] = [
   { label: 'Services', href: '#services' },
   { label: 'About', href: '#about' },
   { label: 'Process', href: '#process' },
+  { label: 'Pricing', href: '#pricing' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -132,7 +133,7 @@ const Navbar = React.memo(function Navbar() {
 
           {/* Footer strip */}
           <div className="px-6 py-6 border-t border-brut-surface">
-            <p className="font-mono text-xs text-brut-surface">hello@caparrosui.com</p>
+            <p className="font-mono text-xs text-brut-surface">caparrosui@gmail.com</p>
           </div>
         </div>
       )}

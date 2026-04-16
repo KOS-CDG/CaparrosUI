@@ -6,7 +6,7 @@ import Services from '@/components/sections/Services'
 import Work from '@/components/sections/Work'
 import About from '@/components/sections/About'
 import Process from '@/components/sections/Process'
-import Testimonials from '@/components/sections/Testimonials'
+import Pricing from '@/components/sections/Pricing'
 import StartProject from '@/components/sections/StartProject'
 
 const App = React.memo(function App() {
@@ -18,10 +18,11 @@ const App = React.memo(function App() {
       <Work />
       <About />
       <Process />
-      <Testimonials />
+      <Pricing />
       <StartProject />
     </PageLayout>
   )
 })
 
 export default App
+

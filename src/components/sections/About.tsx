@@ -4,41 +4,6 @@ import { useInView } from '@/hooks/useInView'
 import SectionLabel from '@/components/ui/SectionLabel'
 import SectionDivider from '@/components/ui/SectionDivider'
 
-interface StatItemProps {
-  value: string
-  label: string
-  delay: number
-  inView: boolean
-}
-
-const StatItem = React.memo(function StatItem({ value, label, delay, inView }: StatItemProps) {
-  const shouldReduceMotion = useReducedMotion()
-
-  return (
-    <motion.div
-      className="border-b-2 border-brut-white/10 py-8 last:border-b-0"
-      initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 20 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.5, ease: 'easeOut', delay }}
-    >
-      <span
-        className="font-mono font-bold text-brut-white block leading-none"
-        style={{ fontSize: 'clamp(48px, 7vw, 80px)' }}
-      >
-        {value}
-      </span>
-      <span className="font-sans text-sm md:text-base text-brut-white opacity-60 mt-2 block uppercase tracking-wide">
-        {label}
-      </span>
-    </motion.div>
-  )
-})
-
-const stats = [
-  { value: '50+', label: 'Projects Delivered' },
-  { value: '3+', label: 'Years of Practice' },
-  { value: '100%', label: 'Client Satisfaction' },
-]
 
 const About = React.memo(function About() {
   const shouldReduceMotion = useReducedMotion()
@@ -56,7 +21,7 @@ const About = React.memo(function About() {
         <div className="grid grid-cols-12 gap-8 md:gap-16">
           {/* Left: Statement — 60% */}
           <motion.div
-            className="col-span-12 md:col-span-7 flex flex-col gap-8"
+            className="col-span-12 lg:col-span-9 flex flex-col gap-8"
             initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -97,21 +62,6 @@ const About = React.memo(function About() {
               </p>
             </div>
           </motion.div>
-
-          {/* Right: Stats — 40% */}
-          <div className="col-span-12 md:col-span-5">
-            <div className="border-l-0 md:border-l-2 border-brut-white/10 md:pl-10">
-              {stats.map((stat, index) => (
-                <StatItem
-                  key={stat.label}
-                  value={stat.value}
-                  label={stat.label}
-                  delay={0.1 + index * 0.12}
-                  inView={inView}
-                />
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

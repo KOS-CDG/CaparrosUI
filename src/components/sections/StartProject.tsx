@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { Mail, MapPin, Phone, Github, Linkedin, Twitter, AlertCircle } from 'lucide-react'
+import { Mail, MapPin, Github, Linkedin, Twitter, Dribbble, AlertCircle } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 import BrutalButton from '@/components/ui/BrutalButton'
 import SectionDivider from '@/components/ui/SectionDivider'
@@ -106,8 +106,8 @@ const StartProject = React.memo(function StartProject() {
                 </div>
                 <div>
                   <h3 className="font-grotesk font-bold text-lg uppercase text-brut-black">Email Us</h3>
-                  <a href="mailto:hello@caparrosui.com" className="font-mono text-brut-black opacity-80 hover:text-brut-blue hover:underline transition-colors">
-                    hello@caparrosui.com
+                  <a href="mailto:caparrosui@gmail.com" className="font-mono text-brut-black opacity-80 hover:text-brut-blue hover:underline transition-colors">
+                    caparrosui@gmail.com
                   </a>
                 </div>
               </div>
@@ -124,30 +124,23 @@ const StartProject = React.memo(function StartProject() {
                 </div>
               </div>
               
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-brut-red text-brut-black border-2 border-brut-black shadow-brutal-sm">
-                  <Phone size={24} />
-                </div>
-                <div>
-                  <h3 className="font-grotesk font-bold text-lg uppercase text-brut-black">Phone</h3>
-                  <a href="tel:+639000000000" className="font-mono text-brut-black opacity-80 hover:text-brut-red hover:underline transition-colors">
-                    +63 (900) 000-0000
-                  </a>
-                </div>
-              </div>
+
             </motion.div>
             
             <motion.div variants={itemVariants} className="mt-auto">
               <h3 className="font-mono text-sm uppercase text-brut-black opacity-60 mb-4">Connect</h3>
               <div className="flex gap-4">
-                <a href="#" aria-label="LinkedIn" className="p-3 bg-white border-2 border-brut-black text-brut-black hover:bg-brut-blue hover:text-white shadow-brutal-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all">
+                <a href="https://www.linkedin.com/in/dhale-caparros-a884a23b9" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-3 bg-white border-2 border-brut-black text-brut-black hover:bg-brut-blue hover:text-white shadow-brutal-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all">
                   <Linkedin size={24} />
                 </a>
-                <a href="#" aria-label="Twitter" className="p-3 bg-white border-2 border-brut-black text-brut-black hover:bg-brut-black hover:text-white shadow-brutal-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all">
+                <a href="https://twitter.com/caparrosui" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="p-3 bg-white border-2 border-brut-black text-brut-black hover:bg-brut-black hover:text-white shadow-brutal-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all">
                   <Twitter size={24} />
                 </a>
-                <a href="#" aria-label="GitHub" className="p-3 bg-white border-2 border-brut-black text-brut-black hover:bg-brut-surface hover:text-white shadow-brutal-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all">
+                <a href="https://github.com/caparros-ui" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-3 bg-white border-2 border-brut-black text-brut-black hover:bg-brut-surface hover:text-white shadow-brutal-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all">
                   <Github size={24} />
+                </a>
+                <a href="https://dribbble.com/caparros-ui" target="_blank" rel="noopener noreferrer" aria-label="Dribbble" className="p-3 bg-white border-2 border-brut-black text-brut-black hover:bg-brut-pink hover:text-white shadow-brutal-sm hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all">
+                  <Dribbble size={24} />
                 </a>
               </div>
             </motion.div>
@@ -214,13 +207,13 @@ const StartProject = React.memo(function StartProject() {
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full bg-brut-bg border-2 border-brut-black p-4 font-sans text-brut-black placeholder:text-brut-black/40 focus:outline-none focus:ring-4 focus:ring-brut-yellow transition-shadow"
-                      placeholder="hello@example.com"
+                      placeholder="caparrosui@gmail.com"
                     />
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <label htmlFor="budget" className="font-grotesk font-bold uppercase text-brut-black text-sm">
-                      Project Budget
+                      Select Package
                     </label>
                     <div className="relative">
                       <select
@@ -231,10 +224,10 @@ const StartProject = React.memo(function StartProject() {
                         onChange={handleChange}
                         className="w-full bg-brut-bg border-2 border-brut-black p-4 font-sans text-brut-black appearance-none focus:outline-none focus:ring-4 focus:ring-brut-yellow transition-shadow rounded-none"
                       >
-                        <option value="" disabled>Select a range</option>
-                        <option value="<5k">Under $5k — MVP Stage</option>
-                        <option value="5k-15k">$5k - $15k — Growth Stage</option>
-                        <option value="15k+">$15k+ — Enterprise Scaling</option>
+                        <option value="" disabled>Select a package</option>
+                        <option value="basic">Basic Website — PHP 1,500</option>
+                        <option value="professional">Professional Website — PHP 5,000</option>
+                        <option value="premium">Premium Website — PHP 8,000</option>
                       </select>
                       <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-brut-black">
                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>

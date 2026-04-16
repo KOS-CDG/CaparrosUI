@@ -6,14 +6,15 @@ const footerLinks = [
   { label: 'Services', href: '#services' },
   { label: 'About', href: '#about' },
   { label: 'Process', href: '#process' },
+  { label: 'Pricing', href: '#pricing' },
   { label: 'Contact', href: '#contact' },
 ]
 
 const socialLinks = [
-  { label: 'GitHub', href: 'https://github.com/caparrosui' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/company/caparrosui' },
+  { label: 'GitHub', href: 'https://github.com/caparros-ui' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/dhale-caparros-a884a23b9' },
   { label: 'Twitter / X', href: 'https://twitter.com/caparrosui' },
-  { label: 'Dribbble', href: 'https://dribbble.com/caparrosui' },
+  { label: 'Dribbble', href: 'https://dribbble.com/caparros-ui' },
 ]
 
 const Footer = React.memo(function Footer() {
@@ -80,10 +81,10 @@ const Footer = React.memo(function Footer() {
             </h3>
             <div className="flex flex-col gap-3">
               <a
-                href="mailto:hello@caparrosui.com"
+                href="mailto:caparrosui@gmail.com"
                 className="font-grotesk font-700 text-base uppercase text-brut-black hover:text-brut-blue transition-colors duration-fast tracking-tight"
               >
-                hello@caparrosui.com
+                caparrosui@gmail.com
               </a>
               <p className="font-mono text-xs text-brut-black opacity-60">
                 Based globally. Working remotely.
